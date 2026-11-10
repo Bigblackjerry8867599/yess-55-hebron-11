@@ -1,1 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genius Hospitality Group | About Us - Hotels & Stays</title>
+    <meta name="description" content="Discover the story behind Genius Hospitality Group and our mission to offer comfortable, welcoming hotels across Uganda.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3e362e;
+            --secondary: #556b2f;
+            --dark: #2d3436;
+            --light: #000000;
+            --accent: #ffd166;
+            --hero-gradient: linear-gradient(135deg, #556b2f 0%, #2c3718 100%);
+            --font-display: 'Marcellus', Georgia, serif;
+            --font-body: 'Cormorant Garamond', Georgia, serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); color: #fff; background: #000; line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 400; letter-spacing: 0.01em; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        nav { position: sticky; top: 0; background: #000; z-index: 1000; height: 38px; display: flex; align-items: center; }
+        .nav-container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1rem; display: flex; justify-content: flex-end; align-items: center; height: 100%; }
+        #menu-toggle { display: none; background: transparent; border: none; color: #fff; font-size: 1.2rem; cursor: pointer; }
+        #nav-links { list-style: none; display: flex; align-items: center; gap: 1.4rem; }
+        #nav-links a { text-decoration: none; color: #fff; font-weight: 800; font-size: 1.05rem; letter-spacing: 0.04em; }
+        #nav-links a:hover { color: var(--accent); }
+        #nav-links .nav-cta { background: var(--accent); color: #3e362e; padding: 0.35rem 0.9rem; border-radius: 4px; font-weight: 800; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.09em; }
+        #nav-links.open { display: flex; flex-direction: column; align-items: flex-start; position: absolute; top: 38px; right: 1rem; padding: 1rem; background: #000; border-radius: 5px; gap: 1rem; z-index: 999; }
+        @media (max-width: 768px) { #menu-toggle { display: block; } #nav-links { display: none; } }
+        .btn { display: inline-block; padding: 12px 28px; border-radius: 30px; text-decoration: none; font-weight: 700; letter-spacing: 0.04em; border: none; cursor: pointer; font-size: 17px; }
+        .btn-primary { background: var(--accent); color: #22300f; }
+        .btn-secondary { background: transparent; border: 2px solid #fff; color: #fff; }
+        .hero-section { padding: 5rem 0; background: var(--hero-gradient); color: white; border-radius: 0 0 2rem 2rem; margin-bottom: 3rem; text-align: center; }
+        .hero-section h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.2; }
+        .hero-section p { font-size: 1.35rem; font-weight: 600; max-width: 650px; margin: 0 auto 40px; line-height: 1.65; }
+        .hero-btns { display: flex; gap: 20px; margin-top: 30px; justify-content: center; flex-wrap: wrap; }
+        .section-title { text-align: center; margin-bottom: 50px; position: relative; }
+        .section-title h2 { font-size: 2.6rem; padding-bottom: 15px; }
+        .section-title h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: var(--accent); border-radius: 2px; }
+        .section-title p { font-size: 1.25rem; font-weight: 600; color: rgba(255,255,255,0.85); margin-top: 10px; max-width: 620px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+        .our-story { padding: 60px 0 20px; background: #000; }
+        .story-content { max-width: 1100px; margin: 0 auto; padding: 0 20px 40px; }
+        .story-text { font-size: 1.35rem; font-weight: 600; line-height: 1.75; color: #ddd; }
+        .story-text p { margin-bottom: 18px; }
+        .story-image { max-width: 600px; margin: 0 auto 60px; border-radius: 15px; overflow: hidden; }
+        .story-image img { width: 100%; display: block; }
+        .milestones { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto; padding: 0 20px 60px; }
+        .milestone-card { text-align: center; padding: 30px; background: #1a1a1a; border: 1px solid #333; border-radius: 15px; }
+        .milestone-number { font-size: 3rem; font-weight: 700; color: var(--accent); margin-bottom: 15px; }
+        .milestone-card h4 { font-size: 1.35rem; margin-bottom: 8px; }
+        .milestone-card p { font-size: 1.15rem; font-weight: 600; color: rgba(255,255,255,0.82); line-height: 1.65; }
+        .our-team { padding: 80px 0; background: #000; }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px; }
+        .team-card { background: #1a1a1a; border-radius: 15px; overflow: hidden; }
+        .team-image { height: 300px; overflow: hidden; }
+        .team-image img { width: 100%; height: 100%; object-fit: cover; }
+        .team-info { padding: 25px; text-align: center; }
+        .team-info h3 { font-size: 1.4rem; color: var(--accent); margin-bottom: 6px; }
+        .team-info p { font-size: 1.1rem; font-weight: 600; color: rgba(255,255,255,0.7); }
+        .our-values { padding: 100px 0; background: #f5efe6; color: #333; }
+        .our-values .section-title h2 { color: #3e362e; }
+        .our-values .section-title h2::after { background: #556b2f; }
+        .our-values .section-title p { color: #55503f; }
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+        .value-card { background: #fff; border-radius: 15px; padding: 40px 30px; text-align: center; border: 1px solid #e6ddcb; }
+        .value-icon { font-size: 3rem; color: #556b2f; margin-bottom: 25px; }
+        .value-card h3 { color: #3e362e; font-size: 1.45rem; margin-bottom: 15px; }
+        .value-card p { font-size: 1.25rem; font-weight: 600; color: #55503f; line-height: 1.7; }
+        .testimonials { padding: 100px 0; background: #000; }
+        .testimonial-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; margin-top: 50px; }
+        .testimonial-card { background: #1a1a1a; border: 1px solid #333; border-radius: 15px; padding: 40px; }
+        .testimonial-content p { font-size: 1.35rem; font-weight: 600; line-height: 1.7; color: rgba(255,255,255,0.95); margin-bottom: 25px; }
+        .author-info h4 { font-size: 1.3rem; color: var(--accent); margin-bottom: 4px; }
+        .author-info p { font-size: 1.1rem; font-weight: 600; color: rgba(255,255,255,0.72); }
+        .cta { padding: 120px 0; background: var(--hero-gradient); color: white; text-align: center; }
+        .cta h2 { font-size: 2.9rem; margin-bottom: 20px; }
+        .cta p { font-size: 1.45rem; font-weight: 600; max-width: 700px; margin: 0 auto 40px; line-height: 1.7; }
+        .cta-btns { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .btn-light { background: var(--accent); color: #22300f; }
+        .btn-outline-light { background: transparent; border: 2px solid white; color: white; }
+        footer { background: #2d3436; color: rgba(255,255,255,0.78); padding: 70px 0 30px; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: rgba(255,255,255,0.78); text-decoration: none; font-size: 1.15rem; font-weight: 600; }
+        footer .footer-column h3 { font-size: 1.4rem; color: #fff; margin-bottom: 18px; }
+        footer .footer-column p, footer .footer-column span { font-size: 1.15rem; font-weight: 600; line-height: 1.7; color: rgba(255,255,255,0.82); }
+        .copyright { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .copyright p { font-size: 1.1rem; font-weight: 600; color: rgba(255,255,255,0.75); }
+        /* FIX: force everything visible */
+        .milestone-card, .team-card, .value-card, .testimonial-card { opacity: 1 !important; transform: none !important; }
+        @media (max-width: 768px) { .hero-section h1 { font-size: 2.4rem; } .hero-btns, .cta-btns { flex-direction: column; align-items: center; } .testimonial-container { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <button onclick="toggleMenu()" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+            <ul id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="hotels.html">Hotels</a></li>
+                <li><a href="rooms.html">Rooms</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="booking.html" class="nav-cta">Book Now</a></li>
+            </ul>
+        </div>
+    </nav>
 
+    <div class="hero-section">
+        <div class="container">
+            <h1>About Genius</h1>
+            <p>A growing chain of hotels built on warm hospitality, comfortable rooms and honest value — from Kampala to Entebbe to Jinja.</p>
+            <div class="hero-btns">
+                <a href="booking.html" class="btn btn-primary">Book Your Stay</a>
+                <a href="hotels.html" class="btn btn-secondary">View Our Hotels</a>
+            </div>
+        </div>
+    </div>
+
+    <section class="our-story">
+        <div class="container">
+            <div class="section-title"><h2>Our Story</h2><p>From one small hotel in Kampala to a trusted name in hospitality</p></div>
+            <div class="story-content"><div class="story-text">
+                <p>Genius Hospitality Group started in 2018 with one idea: travellers in Uganda deserved hotels that were clean, comfortable, affordable — and genuinely welcoming.</p>
+                <p>We opened our first property in Kampala with just 18 rooms and a small team who believed service matters more than luxury labels. Word spread. Business travellers came back. Families came for weekends. Couples chose us for weddings.</p>
+                <p>Today we run hotels in Kampala, Entebbe and Jinja — each with its own character, but the same promise: a good night’s sleep, a good breakfast, and staff who remember your name.</p>
+            </div></div>
+        </div>
+    </section>
+
+    <div class="story-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Genius Hospitality Group hotel"></div>
+
+    <div class="milestones">
+        <div class="milestone-card"><div class="milestone-number">2018</div><h4>Founded</h4><p>First hotel opened in Kampala with 18 rooms</p></div>
+        <div class="milestone-card"><div class="milestone-number">6</div><h4>Hotels</h4><p>Across Kampala, Entebbe and Jinja</p></div>
+        <div class="milestone-card"><div class="milestone-number">120+</div><h4>Rooms &amp; Suites</h4><p>From Standard to Executive Suites</p></div>
+        <div class="milestone-card"><div class="milestone-number">25k+</div><h4>Happy Guests</h4><p>Business, family and leisure travellers hosted</p></div>
+    </div>
+
+    <section class="our-team">
+        <div class="container">
+            <div class="section-title"><h2>Meet The Team Behind Genius</h2><p>The people who make every stay feel like home</p></div>
+            <div class="team-grid">
+                <div class="team-card"><div class="team-image"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80" alt="General Manager"></div><div class="team-info"><h3>Daniel K.</h3><p>General Manager</p></div></div>
+                <div class="team-card"><div class="team-image"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Head of Guest Experience"></div><div class="team-info"><h3>Sarah N.</h3><p>Head of Guest Experience</p></div></div>
+                <div class="team-card"><div class="team-image"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80" alt="Operations Director"></div><div class="team-info"><h3>Michael O.</h3><p>Operations Director</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="our-values">
+        <div class="container">
+            <div class="section-title"><h2>Our Core Values</h2><p>The principles that guide every hotel, every room, every guest</p></div>
+            <div class="values-grid">
+                <div class="value-card"><div class="value-icon"><i class="fas fa-heart"></i></div><h3>Warm Hospitality</h3><p>We greet every guest like family — with a smile, a welcome drink, and help with bags, directions and plans.</p></div>
+                <div class="value-card"><div class="value-icon"><i class="fas fa-bed"></i></div><h3>Comfort First</h3><p>Clean rooms, comfortable beds, hot showers, fast Wi-Fi and quiet nights. The basics, done brilliantly.</p></div>
+                <div class="value-card"><div class="value-icon"><i class="fas fa-map-marker-alt"></i></div><h3>Prime Locations</h3><p>Our hotels are close to business districts, airports, lakes and attractions — so you spend less time travelling.</p></div>
+                <div class="value-card"><div class="value-icon"><i class="fas fa-shield-alt"></i></div><h3>Safe &amp; Secure</h3><p>24-hour reception, secure parking, CCTV and trained staff so you and your family feel safe.</p></div>
+                <div class="value-card"><div class="value-icon"><i class="fas fa-seedling"></i></div><h3>Sustainable Growth</h3><p>We hire locally, buy locally where we can, and grow thoughtfully without losing our personal touch.</p></div>
+                <div class="value-card"><div class="value-icon"><i class="fas fa-laugh"></i></div><h3>Joyful Stays</h3><p>We believe a hotel stay should feel like a small holiday — even if it’s just one night for work.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title"><h2>Guest Voices</h2><p>Hear from travellers who stayed with Genius</p></div>
+            <div class="testimonial-container">
+                <div class="testimonial-card"><div class="testimonial-content"><p>I stay at Genius Kampala every time I’m in town for work. Clean room, fast Wi-Fi, great breakfast, and the front desk always sorts my airport taxi. It’s my home in Kampala.</p></div><div class="author-info"><h4>Alex M.</h4><p>Business Guest — Kampala</p></div></div>
+                <div class="testimonial-card"><div class="testimonial-content"><p>We booked the Family Resort for a weekend with our kids. Pool, garden, kids activities — and staff who were so kind to our children. We’ve already booked again.</p></div><div class="author-info"><h4>Jamila W.</h4><p>Family Guest — Entebbe</p></div></div>
+                <div class="testimonial-card"><div class="testimonial-content"><p>We held our wedding at Genius Conference &amp; Events. The team handled everything — hall, catering, rooms for guests. It was beautiful and stress-free.</p></div><div class="author-info"><h4>Thomas R.</h4><p>Wedding Guest — Jinja</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Come Stay With Us</h2>
+            <p>Choose your hotel, pick your dates and book in minutes. Best rate guaranteed when you book direct.</p>
+            <div class="cta-btns"><a href="booking.html" class="btn btn-light">Book Your Stay</a><a href="hotels.html" class="btn btn-outline-light">View Our Hotels</a></div>
+        </div>
+    </section>
+
+    <footer>
+        <div style="margin: 20px auto; max-width: 1200px; text-align: center;">
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-bottom: 30px;">
+                <div class="footer-column" style="margin: 15px; min-width: 200px;"><h3>Genius Hospitality Group</h3><p style="margin: 15px 0;">A chain of hotels offering comfortable stays, great dining and memorable experiences.</p></div>
+                <div class="footer-column" style="margin: 15px; min-width: 200px;"><h3>Values</h3><ul class="contact-info" style="list-style: none; padding: 0; margin: 15px 0;"><li style="margin: 8px 0;"><span>Hospitality</span></li><li style="margin: 8px 0;"><span>Comfort</span></li><li style="margin: 8px 0;"><span>Reliability</span></li></ul></div>
+                <div class="footer-column" style="margin: 15px; min-width: 200px;"><h3>Quick Links</h3><ul class="footer-links" style="list-style: none; padding: 0; margin: 15px 0;"><li><a href="index.html">Home</a></li><li><a href="hotels.html">Hotels</a></li><li><a href="rooms.html">Rooms</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+                <div class="footer-column" style="margin: 15px; min-width: 200px;"><h3>Legal</h3><ul class="footer-links" style="list-style: none; padding: 0; margin: 15px 0;"><li><a href="legal.html#privacy">Privacy Policy</a></li><li><a href="legal.html#terms">Terms of Service</a></li><li><a href="legal.html#cookie">Cookie Policy</a></li><li><a href="legal.html#accessibility">Accessibility</a></li></ul></div>
+            </div>
+            <div class="copyright"><p>&copy; 2026 Genius Hospitality Group. All rights reserved.</p><p>A hotel chain and hospitality company</p></div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const links = document.getElementById('nav-links');
+            const toggle = document.getElementById('menu-toggle');
+            const isOpen = links.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        }
+        function handleResize() {
+            if (window.innerWidth > 768) {
+                document.getElementById('nav-links').classList.remove('open');
+            }
+        }
+        window.addEventListener('resize', handleResize);
+        window.addEventListener('load', handleResize);
+    </script>
+</body>
+                                                                                                    </html>
